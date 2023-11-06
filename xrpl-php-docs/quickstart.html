@@ -51,8 +51,8 @@
             -->
             <div class="collapse navbar-collapse" id="top-navigation">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="https://alexanderbuzz.github.io/xrpl-php-docsindex.html" title="Getting started with XRPL_PHP">Home</a></li>
-                    <li><a href="https://alexanderbuzz.github.io/xrpl-php-docsquickstart.html" title="Getting started with XRPL_PHP">Quickstart</a></li>
+                    <li><a href="https://alexanderbuzz.github.io/xrpl-php-docs/index.html" title="Getting started with XRPL_PHP">Home</a></li>
+                    <li><a href="https://alexanderbuzz.github.io/xrpl-php-docs/quickstart.html" title="Getting started with XRPL_PHP">Quickstart</a></li>
                     <li><a class="github" href="https://github.com/AlexanderBuzz/xrpl-php" title="XRPL_PHP on GitHub"><i class="fa fa-github"></i></a></li>
                 </ul>
             </div>
@@ -66,7 +66,7 @@
         <div class="sidebar">
             <ul>
                                     <li>
-                        <span class="section-title">Usage</span>
+                        <span class="section-title">Concepts</span>
 
                         <ul>
                                                             <li class="active">
@@ -204,9 +204,9 @@ $signedTx = $aliceWallet-&gt;sign($autofilledTx);
 
 $txResponse = $client-&gt;submitAndWait($signedTx['tx_blob']);
 $result = $txResponse-&gt;getResult();</code></pre>
-<p>Here, we </p>
+<p>The steps are as follows:</p>
 <ol>
-<li>We create a <code>Transaction</code> array (you can also use dedicated Method objects)</li>
+<li>We create a <code>Transaction</code> array (you can also use dedicated <a href="methods.html">Method</a> objects)</li>
 <li>We use the <code>autofill()</code> function to add necessary fields like <code>Sequence</code>, <code>Fee</code> and <code>LastLedgerSequence</code></li>
 <li>We sign our Transaction (which will result in an array with the fields tx_blob and hash)</li>
 <li>We submit our transaction using <code>submitAndWait()</code>, which submits the serialized <code>Transaction</code> and waits for validation</li>
