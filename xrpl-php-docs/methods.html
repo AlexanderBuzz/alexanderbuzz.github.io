@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Methods</title>
+    <meta name="description" content="XRPL_PHP - PHP integration for the PHP ledger">
+
+    <link rel="canonical" href="https://php-di.org" />
+
+    <meta name="application-name" content="XRPL_PHP"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/img/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
+    <meta name="msapplication-TileColor" content="#484949" />
+    <meta name="msapplication-TileImage" content="/img/mstile-144x144.png" />
+
+            <link href="https://fonts.googleapis.com/css?family=Abel:400|Oswald:300,400,700" media="all" rel="stylesheet" type="text/css">
+
+        <link href="/css/highlight.css" rel="stylesheet">
+        <link href="/css/all.min.css" rel="stylesheet">
+    </head>
+<body>
+
+<header>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" title="">XRPL_PHP</a>
+            </div>
+            <!--
+            <div class="navbar-form navbar-left hidden-xs hidden-sm">
+                <input id="search-input" type="text" class="form-control" placeholder="Search...">
+            </div>
+            -->
+            <div class="collapse navbar-collapse" id="top-navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/docs/index.html" title="Getting started with XRPL_PHP">Home</a></li>
+                    <li><a href="/docs/quickstart.html" title="Getting started with XRPL_PHP">Quickstart</a></li>
+                    <li><a class="github" href="https://github.com/AlexanderBuzz/xrpl-php" title="XRPL_PHP on GitHub"><i class="fa fa-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container documentation">
+
+        <div class="sidebar">
+            <ul>
+                                    <li>
+                        <span class="section-title">Usage</span>
+
+                        <ul>
+                                                            <li class="">
+                                    <a href="/docs/quickstart.html">
+                                        Quickstart
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/docs/wallet.html">
+                                        Wallet
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/docs/client.html">
+                                        JSON RPC Client
+                                    </a>
+                                </li>
+                                                            <li class="active">
+                                    <a href="/docs/methods.html">
+                                        Client Methods
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </li>
+                                    <li>
+                        <span class="section-title">Core</span>
+
+                        <ul>
+                                                            <li class="">
+                                    <a href="/docs/address-codec.html">
+                                        AddressCodec
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/docs/binary-codec.html">
+                                        BinaryCodec
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/docs/keypairs.html">
+                                        Keypairs
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/docs/buffer.html">
+                                        Buffer
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/docs/ctid.html">
+                                        CTID
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/docs/networks.html">
+                                        Networks
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </li>
+                                    <li>
+                        <span class="section-title"></span>
+
+                        <ul>
+                                                            <li class="">
+                                    <a href="/docs/core-utilities.html">
+                                        Core Utilities
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/docs/math-utilities.html">
+                                        Math Utilities
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/docs/utilities.html">
+                                        Utilities
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </li>
+                            </ul>
+        </div>
+
+        <article>
+            
+        </article>
+
+    </div>
+
+
+    <footer>
+        <div class='container'>
+            <p>
+                Website generated with
+                <a href="http://couscous.io" title="Static website generator for software documentation">Couscous</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+
+    <script>
+        $(function() {
+            hljs.initHighlightingOnLoad();
+
+            // Add anchors to headers
+            $('article h2, article h3, article h4, article h5').each(function () {
+                var url = document.URL.replace(/#.*$/, "") + '#' + $(this).attr('id');
+                $(this).append(' <a class="anchor" href="' + url + '">#</a>');
+            });
+        });
+    </script>
+        <!-- Livereload -->
+        <script>
+            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+                    ':35729/livereload.js?snipver=1"></' + 'script>')
+        </script>
+        <!-- End Livereload -->
+    </body>
+</html>
