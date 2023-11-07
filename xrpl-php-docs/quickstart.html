@@ -156,11 +156,20 @@
 <h2 id="installation">Installation</h2>
 <p>You can install XRPL_PHP with <a href="http://getcomposer.org/doc/00-intro.html">Composer</a>:</p>
 <pre><code>composer require hardcastle/xrpl_php</code></pre>
-<p>XRPL_PHP requires PHP 8.1 or above.</p>
+<p>XRPL_PHP requires PHP 8.1 or above. Optional but recommended are the PHP extensions <a href="http://php.net/manual/en/book.gmp.php">GMP</a>
+and / or <a href="https://www.php.net/manual/de/book.bc.php">BCMath</a>, which will speed up operations involving arbitrary length numbers like
+Encryption and Serialisation.</p>
 <h2 id="sandbox">Sandbox</h2>
 <p>You can try XRPL_PHP in the following sandbox environment: <a href="https://phpsandbox.io/n/yellow-kit-fisto-31c5a">XRPL_PHP Sandbox</a></p>
+<h2 id="docker">Docker</h2>
+<p>[WIP]</p>
 <h2 id="basic-usage">Basic usage</h2>
-<h3 id="pinging-the-xrp-ledger">Pinging the XRP Ledger</h3>
+<p>Interacting with the XRPL basically involves two kinds of operations: </p>
+<ol>
+<li>Querying the ledger, e.g. looking up the XRP balance of a given account or requesting the details of a specific transaction.</li>
+<li>Doing <a href="https://xrpl.org/transactions.html">Transactions</a>, which are operations that modify the ledger state. Examples are issuing Payments or minting NFTs.</li>
+</ol>
+<h3 id="query-example---pinging-the-xrp-ledger">Query Example - Pinging the XRP Ledger</h3>
 <p>First, let's do a very basic request to the XRPL Testnet:</p>
 <pre><code class="language-php">use XRPL_PHP\Client\JsonRpcClient;
 use XRPL_PHP\Models\Utility\PingRequest;
@@ -174,8 +183,8 @@ $pingResponse = $client-&gt;syncRequest($pingRequest);
 $result = $pingResponse-&gt;getResult();
 
 print_r($result);</code></pre>
-<h3 id="issuing-a-payment">Issuing a Payment</h3>
-<p>In this more complex example, we create two Wallets from their corresponding Seeds and issue a Payment from one to the other.</p>
+<h3 id="transaction-example---issuing-a-payment">Transaction example - Issuing a Payment</h3>
+<p>In this more complex example, we create two Wallets from their corresponding Seeds and issue a Payment from one to the other. </p>
 <pre><code class="language-php">use Codedungeon\PHPCliColors\Color;
 use XRPL_PHP\Client\JsonRpcClient;
 use XRPL_PHP\Wallet\Wallet;
@@ -211,7 +220,11 @@ $result = $txResponse-&gt;getResult();</code></pre>
 <li>We sign our Transaction (which will result in an array with the fields tx_blob and hash)</li>
 <li>We submit our transaction using <code>submitAndWait()</code>, which submits the serialized <code>Transaction</code> and waits for validation</li>
 </ol>
-<h3 id="further-reading">Further Reading</h3>
+<h2 id="further-reading">Further Reading</h2>
+<p>In those two examples we've touched most of the basic needs for most use cases. To get a better understanding, you can take a look at
+more <a href="https://github.com/AlexanderBuzz/xrpl-php/tree/master/examples">examples</a> or explore this documentation. Tip: This documentation is
+structured in a conceptually successive order. So just skimming it in order will give you a birds eye view on how all the
+parts fit into the big picture. </p>
         </article>
 
     </div>

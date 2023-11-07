@@ -152,18 +152,26 @@
         </div>
 
         <article>
-            <h3 id="generating-a-wallet">Generating a Wallet</h3>
+            <h3 id="creating-a-new-wallet">Creating a new Wallet</h3>
+<p>To create a new <code>Wallet</code>, you can use the static <code>generate()</code> method of the <code>Wallet</code> class:</p>
 <pre><code class="language-php">use XRPL_PHP\Wallet\Wallet;
 
 $exampleWallet = Wallet::generate();</code></pre>
+<p>It provides the necessary
+properties for an Account on the ledger to exist, e.g. Seed, Keys and Address etc. Note that this Account does not
+yet exist on the Ledger: It has to be activated by a <code>Payment Transaction</code>. If you are using the testnet, you can use the
+<code>fundWallet()</code> utility method or use a <a href="https://test.bithomp.com/faucet/">Faucet</a> to get your <code>Wallet</code> funded and active.</p>
 <h3 id="creating-a-wallet-from-seed">Creating a Wallet from Seed</h3>
+<p>If you already have an active <code>Account</code> on the XRPL, you can create a corresponding <code>Wallet</code> from its seed by using the
+static <code>fromSeed()</code>method:</p>
 <pre><code class="language-php">use XRPL_PHP\Wallet\Wallet;
 
 // Use your own credentials here:
 $exampleSeed = 'sEd7rnfWxwJmRditu2UpSsrZDRgtctn';
 $exampleWallet = Wallet::fromSeed($exampleSeed);</code></pre>
 <h3 id="creating-a-faucet-wallet-on-the-testnet">Creating a Faucet Wallet on the Testnet</h3>
-<p>An account on the XRPL has to be funded / activated. On the Mainnet, this is done by sending a Payment transaction On the Testnet, you can create a</p>
+<p>An Account on the XRPL has to be funded to be activated. On the Mainnet, this is done by sending a <code>Payment Transaction</code>.
+On the Testnet, you can create a prefunded Wallet in the following way:</p>
 <pre><code class="language-php">use XRPL_PHP\Client\JsonRpcClient;
 
 use function XRPL_PHP\Sugar\fundWallet;
@@ -176,7 +184,24 @@ $fundWalletResponse = fundWallet(
 );
 
 $fundedWallet = $fundWalletResponse['wallet'];</code></pre>
-<h3 id="create-a-wallet-from-seed">Create a Wallet from seed</h3>
+<h3 id="signing-a-transaction">Signing a Transaction</h3>
+<p>To sign a <code>Transaction</code>, you can use the <code>sign()</code> method of a <code>Wallet</code>:</p>
+<pre><code class="language-php">$tx = [
+    "TransactionType" =&gt; "Payment",
+    "Account" =&gt; $aliceWallet-&gt;getAddress(),
+    "Amount" =&gt; xrpToDrops($xrpAmount),
+    "Destination" =&gt; $bobWallet-&gt;getAddress(),
+    "DestinationTag" =&gt; 1937215245,
+    "Sequence" =&gt; 42538726,
+    "Fee" =&gt; 12,
+    "LastLedgerSequence" =&gt; 42697421  
+];
+$signedTx = $wallet-&gt;sign($tx);</code></pre>
+<p>The result will be an array comprised of two fields:</p>
+<ol>
+<li><code>$signedTx['tx_blob']</code>, representing the signed, serialized <code>Transaction</code></li>
+<li><code>$signedTx['hash']</code>, the hashed <code>tx_blob</code></li>
+</ol>
         </article>
 
     </div>
